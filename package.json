@@ -11,12 +11,17 @@
     "@types/node": "^16.18.126",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6",
+    "axios": "^1.9.0",
+    "axois": "^0.0.1-security",
     "primereact": "^10.9.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^7.6.2",
     "react-scripts": "5.0.1",
+    "react-toastify": "^11.0.5",
     "sass": "^1.89.1",
-    "typescript": "^4.9.5",
+    "typescript": "^5.8.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -42,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-helmet": "^6.1.11"
   }
 }
