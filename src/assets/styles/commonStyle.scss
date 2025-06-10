@@ -1,0 +1,118 @@
+@import './variables.scss';
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 500;
+  color: $title-color;
+  margin: 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: $icon-bg-color;
+  font-size: $primary-font;
+  font-weight: 500;
+}
+
+p {
+  font-size: $primary-font;
+  font-weight: 400;
+  color: $icon-bg-color;
+  margin: 0;
+}
+
+
+
+
+
+
+// =======================loader=======================
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+
+  &::before,
+  &::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #FFF;
+    animation: prixClipFix 2s linear infinite;
+  }
+
+  &::after {
+    transform: rotate3d(90, 90, 0, 180deg);
+    border-color: #FF3D00;
+  }
+}
+
+.overlay {
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  gap: 15px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+  }
+
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+  }
+
+  75%,
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+  }
+}
+
+
+
+// =======================scrollbar======================= 
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.05);
+  background-color: $white-color;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
