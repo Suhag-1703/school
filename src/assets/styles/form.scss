@@ -1,0 +1,369 @@
+@import '../styles/variables.scss';
+
+.p-checkbox {
+    width: auto !important;
+    height: auto !important;
+
+    .p-checkbox-box {
+        border-radius: 3.39px;
+        width: 20px;
+        height: 20px;
+        padding: 1.3px;
+
+        &:hover {
+            border-color: $primary-color !important;
+        }
+
+        &.p-highlight {
+            border-color: $dark-light-gray;
+            background: $white-color;
+        }
+
+        &.p-focus {
+            box-shadow: none;
+        }
+
+        &:hover {
+            border-color: $dark-light-gray !important;
+        }
+
+        .p-checkbox-icon {
+            font-size: 10px;
+            font-weight: 600;
+            // color: $primary-color;
+        }
+    }
+
+    &-checked {
+        .p-checkbox-box {
+            border-color: $dark-light-gray !important;
+            background: $primary-color !important;
+            color: $white-color !important;
+        }
+
+        &:not(.p-disabled):has(.p-checkbox-input:hover) {
+            .p-checkbox-icon {
+                // color: $primary-color !important;
+            }
+        }
+    }
+
+    &:not(.p-checkbox-disabled) {
+        .p-checkbox-box {
+            &.p-focus {
+                box-shadow: none;
+            }
+
+            &.p-highlight:hover {
+                border-color: $secondary-color;
+                background: $white-color;
+            }
+
+            &:hover {
+                border-color: $dark-light-gray !important;
+            }
+        }
+
+        &:has(.p-checkbox-input:hover) {
+            .p-checkbox-box {
+                border-color: $primary-color !important;
+            }
+        }
+    }
+}
+
+// radio button
+.p-radiobutton {
+    &.p-component.p-radiobutton-disabled {
+        cursor: auto;
+    }
+
+    .p-radiobutton-box {
+        width: 16px;
+        height: 16px;
+
+        &:not(.p-disabled):hover {
+            border-color: $primary-color !important;
+            background: $primary-color !important;
+            color: $white-color;
+        }
+
+        &.p-focus:not(.p-disabled) {
+            box-shadow: none !important;
+            border-color: $primary-color !important;
+        }
+
+        .p-radiobutton-icon {
+            transform: translateZ(0) scale(0.6, 0.6);
+        }
+    }
+
+    &:not(.p-disabled):has(.p-radiobutton-input:hover) {
+        .p-radiobutton-box {
+            border-color: $primary-color !important;
+        }
+    }
+
+    &-checked {
+        .p-radiobutton-box {
+            background-color: $primary-color !important;
+            border-color: $primary-color !important;
+
+            .p-radiobutton-icon {
+                height: 8px;
+                width: 8px;
+            }
+        }
+    }
+}
+.error-msg {
+  color: $red-color;
+  font-size: $primary-font;
+}
+
+// select input
+input::placeholder {
+    font-size: $primary-font;
+  }
+  
+  .p-dropdown {
+    font-size: 12px;
+  text-transform: capitalize;
+  width: 100%;
+  height: 34px;
+  padding: 8px;
+  border-radius: 2px;
+  line-height: 15px;
+  border: 1px solid $dark-light-gray !important;
+  
+    &:not(.p-disabled):hover,.p-focus {
+      border-color: $primary-color;
+      box-shadow: none;
+    }
+  
+    .p-dropdown-trigger {
+      width: 1rem;
+    }
+    .p-dropdown-panel{
+
+        .p-dropdown-items{
+    
+            .p-dropdown-item {
+                padding: 6px 15px;
+        font-size: $primary-font;
+        font-weight: 500;
+            
+         
+          padding: 8px !important;
+          
+        }
+        }
+    }
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    padding: 6px 15px;
+    font-size: $primary-font;
+    font-weight: 500;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+    color: $icon-main-bg-color !important;
+    background: $secondary-color !important;
+    padding: 6px 15px;
+    font-size: $primary-font;
+    font-weight: 500;
+}
+.p-overlaypanel .p-overlaypanel-content {
+  padding: 0rem;
+  min-width: 220px;
+}
+  
+  
+  
+
+// tooltip
+.p-tooltip {
+    .p-tooltip-text {
+        padding: 6px 10px;
+        margin: 0;
+        border-radius: 8px;
+        text-align: left;
+        font-size: $primary-font !important;
+        background-color: $main-color !important;
+        color: $white-color !important;
+    }
+
+    &.p-tooltip-top {
+        .p-tooltip-arrow {
+            border-top-color: $main-color !important;
+            border-right-color: transparent !important;
+            border-bottom-color: transparent !important;
+            border-left-color: transparent !important;
+        }
+    }
+
+    &.p-tooltip-bottom {
+        .p-tooltip-arrow {
+            border-bottom-color: $main-color !important;
+            border-top-color: transparent !important;
+            border-right-color: transparent !important;
+            border-left-color: transparent !important;
+        }
+    }
+
+    &.p-tooltip-left {
+        .p-tooltip-arrow {
+            border-left-color: $main-color !important;
+            border-top-color: transparent !important;
+            border-right-color: transparent !important;
+            border-bottom-color: transparent !important;
+        }
+    }
+
+    &.p-tooltip-right {
+        .p-tooltip-arrow {
+            border-right-color: $main-color !important;
+            border-top-color: transparent !important;
+            border-bottom-color: transparent !important;
+            border-left-color: transparent !important;
+        }
+    }
+}
+
+// pagination
+.p-paginator {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end !important;
+    flex-wrap: wrap;
+    background-color: $secondary-color;
+    text-align: center;
+  
+    .p-paginator-current {
+      font-size: $primary-font;
+      font-weight: 400;
+      color: $primary-color;
+      height: auto;
+      padding-bottom: 2px;
+      list-style: 16px;
+      cursor: auto;
+    }
+  
+    .p-paginator-first,
+    .p-paginator-prev,
+    .p-paginator-next,
+    .p-paginator-last {
+      height: auto;
+      min-width: 1rem;
+    }
+  
+    .p-paginator-pages {
+      .p-paginator-page {
+        font-size: $primary-font;
+        font-weight: 400;
+        min-width: 2rem;
+        height: auto;
+        color: $light-navi-blue-color;
+  
+        &.p-highlight {
+          background: $main-color;
+          border-color: $main-color;
+          color: $white-color; 
+          width: 30px;
+          height: 30px;
+          min-width: 30px;
+        }
+  
+        &:not(.p-highlight):hover {
+          background: transparent;
+        }
+      }
+    }
+   
+  
+    // Keeping dropdown styling scoped here since it's used inside paginator
+    .p-dropdown {
+      font-size: $primary-font !important;
+      font-weight: 400;
+      margin-right: 0px;
+      height: 38px;
+      width: auto;
+      min-width: 60px;
+      border-radius: $btn-border-radius;
+      border: 0.85px solid $input-border-color !important;
+      .p-dropdown-label{
+
+          padding: 0 6px !important;
+      }
+
+    }
+  }
+  .p-dropdown-label{
+
+    padding: 2px 6px !important;
+}
+
+  input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.p-inputswitch {
+    width: 3rem;
+    height: 1.5rem;
+  
+    &.p-highlight {
+      .p-inputswitch-slider {
+        background: $drak-blue-color;
+      }
+    }
+  }
+  .p-hidden-accessible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  } 
+  
+  .label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: $primary-color;
+    display: block;
+  }
+  .p-overlaypanel {
+    z-index: 9999;
+  }
+  .input-description,input[type='comment']{
+    font-size: $primary-font;
+    color: $icon-main-bg-color;
+    background-color: $white-color;
+    border-radius: $btn-border-radius;
+    border: 0.85px solid $input-border-color !important;
+    padding: 8px;
+    width: 100%;
+    height: 120px;
+  }
+
+  .input-field,input[type="text"],input[type="email"],input[type="password"],input[type="number"],input[type="tel"],input[type="url"],input[type="search"] {
+    width: 100%;
+    height: 38px;
+    border-radius: $btn-border-radius;
+    border: 0.85px solid $input-border-color !important;
+    font-size: $primary-font;
+    padding: 8px;
+    color: $icon-main-bg-color;
+    background-color: $white-color;
+  }
+
