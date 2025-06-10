@@ -1,8 +1,7 @@
 import axios, { AxiosError } from 'axios';
 import { toast } from 'react-toastify';
 import { REFERENCEURL } from '../AppConstant';
-import { handleStatus401, parseJwt } from '../utils/commonUtils';
-import { encodePayload } from '../utils/payloadEncode';
+
 import { setLoaderExternally } from '../hooks/useGlobalLoader';
 
 const axiosInstance = axios.create({ baseURL: REFERENCEURL });
