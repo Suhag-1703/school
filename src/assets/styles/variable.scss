@@ -1,0 +1,187 @@
+/* Base colors*/
+$primary-color: #1c304b;
+
+// $active-color: #1A237E;
+$active-color: #f38a5a;
+$red-color: #ff0000;
+$dark-light-gray: #ced4da;
+$light-Icon-over: #d3e4fb;
+$light-navi-blue-color: #3b4f6a;
+$yellow-color: #f0c101;
+$green-color: #3af60a;
+$drak-blue-color: #416d92;
+$light-blue-color: #e9eff7;
+
+
+// new variables
+$white-color: #ffffff;
+$primary-font: 14px;
+$secondary-font: 16px;
+$tertiary-font: 18px;
+$secondary-color: #e6e6e6;
+$icon-bg-color: #484C54;
+$icon-main-bg-color: #7A808B;
+$border-color: #D6D6D6;
+$input-border-color: #DCDCDC;
+$btn-border-radius: 5.08px;
+$btn-height: 38px;
+$btn-reset-border-color: #374150;
+$table-border-radius: 8.47px;
+
+$table-header-bg-color: #F5F7FF;
+$table-row-border-color: #E8E8E8;
+$table-row-height: 46px;
+$main-color: #D40000;
+$active-tab:#FFEFEF;
+$success-color:#35B3A9;
+$title-color: #000000;
+$subtitle-color: #373737;
+$active-tab-bg: #ECF0FF;
+   
+  /*  Media query variables */
+
+  $phone_width: 481px;
+  $phablet_width: 577px;
+  $tablet_width: 768px;
+  $desktop_width: 992px;
+  $desktop_mid_width: 1024px;   
+  $container_width: 1200px;
+  $orientation : landscape;
+  
+  /* 
+   * Mobile landscape media query 
+   */
+  
+  /* (max-width: 480px) */
+  @mixin phonedown_landscape {
+    @media (max-width: #{$phone_width - 1px}) and (orientation: #{$orientation}) { 
+      @content;
+    }
+  }
+  
+  /* (max-width: 767px) */
+  @mixin mobiledown_landscape {
+    @media (max-width: #{$tablet_width - 1px}) and (orientation: #{$orientation}) { 
+      @content;
+    }
+  }
+  
+  /* (max-width: 595px) */
+  @mixin phabletdown_landscape {
+    @media (max-width: #{$phablet_width - 1px}) and (orientation: #{$orientation}) { 
+      @content;
+    }
+  }
+  
+  /* (min-width: 596px), (max-width: 767px) */
+  @mixin mobile_landscape {
+    @media (min-width: #{$phablet_width}) and (max-width: #{$tablet_width - 1px}) and (orientation: #{$orientation}) { 
+      @content;
+    }
+  }
+  
+  /*  (min-width:481px), (max-width: 595px) */
+  @mixin phoneup_landscape {
+    @media (min-width: #{$phone_width}) and (max-width: #{$phablet_width - 1px}) and (orientation: #{$orientation}){
+      @content;
+    }
+  }
+  
+  /* (min-width: 768px), (max-width: 991px) */
+  @mixin ipad_landscape{
+    @media (min-width: #{$tablet_width}) and (max-width: #{$desktop_width - 1px}) and (orientation: #{$orientation}) { 
+      @content;  
+    }
+  }
+  
+  /*  Media query mixins
+     (min-width:1200px) */
+  @mixin container-up {
+    @media (min-width: #{$container_width}) {
+      @content;
+    }
+  }
+  
+  /*  (min-width:992px) */
+  @mixin desktop-up {
+    @media (min-width: #{$desktop_width}) {
+      @content;
+    }
+  }
+  
+  /* (min-width:992px), (max-width: 1024px) */  
+  @mixin desktop-mid {
+    @media (min-width: #{$desktop_width}) and (max-width: #{$desktop_mid_width}) {
+      @content;
+    }
+  }
+  
+  /* (min-width:992px), (max-width: 1200px) */
+  @mixin desktop {
+    @media (min-width: #{$desktop_width}) and (max-width: #{$container_width}) {
+      @content;
+    }
+  }
+  
+  /*  (min-width:768px), (max-width: 991px) */
+  @mixin tablet {
+    @media (min-width: #{$tablet_width}) and (max-width: #{$desktop_width - 1px}) {
+      @content;
+    }
+  }
+  
+  /*  (min-width:596px), (max-width: 767px) */
+  @mixin phablet {
+    @media (min-width: #{$phablet_width}) and (max-width: #{$tablet_width - 1px}) {
+      @content;
+    }
+  }
+  
+  /*  (min-width:481px), (max-width: 595px) */
+  @mixin phone {
+    @media (min-width: #{$phone_width}) and (max-width: #{$phablet_width - 1px}) {
+      @content;
+    }
+  }
+  
+  /* (max-width:1200px) */
+  @mixin container-down {
+    @media (max-width: #{$container_width}) {
+      @content;
+    }
+  }
+  
+  /* (max-width:991px) */
+  @mixin desktop-down {
+    @media (max-width: #{$desktop_width - 1px}) {
+      @content;
+    }
+  }
+  
+  /* (max-width:767px) */
+  @mixin tablet-down {
+    @media (max-width: #{$tablet_width}) {
+      @content;
+    }
+  }
+  
+  /* (max-width:595px) */
+  @mixin phablet-down {
+    @media (max-width: #{$phablet_width - 1px}) {
+      @content;
+    }
+  }
+  
+  /* (min-width:595px) */
+  @mixin phablet-up {
+    @media (min-width: #{$phablet_width}) {
+      @content;
+    }
+  }
+  
+  /*  (max-width:480px) */
+  @mixin phone-down {
+    @media (max-width: #{$phone_width - 1px}) {
+      @content;
+    }
+  }
