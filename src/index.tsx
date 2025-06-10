@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { PrimeReactProvider, PrimeReactContext } from 'primereact/api';
+
+import { PrimeReactProvider } from 'primereact/api';
 
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 

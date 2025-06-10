@@ -1,10 +1,45 @@
+
+
 .App {
   text-align: center;
+
+}
+.traffic-light-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.light.on {
+  opacity: 1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.traffic-light{
+  width: 100px;
+  height: 300px;
+  background-color: #333;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.light{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 10px 0;
+  background-color: #555;
+  transition: background-color 0.3s ease;
+}
+.light.red.on {
+  background-color: red;
+}
+.light.yellow.on {
+  background-color: yellow;
+}
+.light.green.on {
+  background-color: green;
 }
 
 @media (prefers-reduced-motion: no-preference) {
