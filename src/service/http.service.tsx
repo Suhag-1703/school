@@ -2,7 +2,7 @@
 
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
-const BASE_URL = "https://api.example.com"; // Change as needed
+const BASE_URL = "https://dummyjson.com"; // Change as needed
 
 // ✅ Create Axios Instance
 const http: AxiosInstance = axios.create({
