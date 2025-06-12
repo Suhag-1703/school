@@ -1,0 +1,19 @@
+{
+  "UserDetails": [
+    {
+      "id": "1",
+      "name": "Deepak",
+      "email": "Deepak@gmail.com",
+      "Password":"Cheeku-06/2023"
+    }
+  ],
+
+  
+  "DashBoard": [
+    {
+      "name": "Poppo",
+      "email": "Poppo@gmail.com",
+      "id": "1"
+    }
+  ]
+}

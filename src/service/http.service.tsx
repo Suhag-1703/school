@@ -1,4 +1,5 @@
-// src/services/httpService.ts
+
+//  json-server --watch db.json --port 3001
 
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
@@ -67,6 +68,3 @@ const httpService = {
 };
 
 export default httpService;
-
-
-
