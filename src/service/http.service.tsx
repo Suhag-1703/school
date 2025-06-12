@@ -1,9 +1,15 @@
 
 //  json-server --watch db.json --port 3001
 
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, {
+  AxiosInstance,
+  AxiosRequestConfig,
+  AxiosResponse,
+  AxiosError,
+} from "axios";
+import toast from "react-hot-toast";
 
-const BASE_URL = "https://dummyjson.com"; // Change as needed
+const BASE_URL = "https://dummyjson.com";
 
 // ✅ Create Axios Instance
 const http: AxiosInstance = axios.create({
@@ -13,26 +19,47 @@ const http: AxiosInstance = axios.create({
   },
 });
 
-// ✅ Request Interceptor
-http.interceptors.request.use((config) => {
+// ✅ Request Interceptor (Add token if exists)
+http.interceptors.request.use((config: any) => {
   const token = localStorage.getItem("authToken");
-  config.headers = config.headers || {}; // Ensure headers is not undefined
+  config.headers = config.headers || {};
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });
 
-// ✅ Response Interceptor
+// ✅ Response Interceptor with Toast Error Handler
 http.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    console.error("API Error:", error.response?.data || error.message);
+  (res: AxiosResponse) => res,
+  (error: AxiosError) => {
+    if (!error.response) {
+      toast.error("🚫 Network error. Please check your internet.");
+    } else {
+      const status = error.response.status;
+      switch (status) {
+        case 401:
+          toast.error("🔒 Unauthorized access (401)");
+          break;
+        case 403:
+          toast.error("⛔ Forbidden (403)");
+          break;
+        case 404:
+          toast.error("❓ Resource not found (404)");
+          break;
+        case 500:
+          toast.error("💥 Internal Server Error (500)");
+          break;
+        default:
+          toast.error(error.message || "Something went wrong!");
+      }
+    }
+
     return Promise.reject(error);
   }
 );
 
-// ✅ Reusable Typed HTTP Request
+// ✅ Typed HTTP Request Wrapper
 type HttpMethod = "get" | "post" | "put" | "delete";
 
 export const asyncRequest = async (
@@ -45,26 +72,33 @@ export const asyncRequest = async (
     ...config,
     method,
     url,
-    ...(data && { data }), // only add `data` if present
+    ...(data && { data }),
   };
 
   const response: AxiosResponse = await http.request(finalConfig);
   return response.data;
 };
 
-// ✅ Optional direct methods
-export const get = (url: string, config?: AxiosRequestConfig) => asyncRequest(url, "get", undefined, config);
-export const post = (url: string, data?: any, config?: AxiosRequestConfig) => asyncRequest(url, "post", data, config);
-export const put = (url: string, data?: any, config?: AxiosRequestConfig) => asyncRequest(url, "put", data, config);
-export const del = (url: string, config?: AxiosRequestConfig) => asyncRequest(url, "delete", undefined, config);
+// ✅ Shortcuts
+export const get = (url: string, config?: AxiosRequestConfig) =>
+  asyncRequest(url, "get", undefined, config);
 
-// ✅ Export as object
+export const post = (url: string, data?: any, config?: AxiosRequestConfig) =>
+  asyncRequest(url, "post", data, config);
+
+export const put = (url: string, data?: any, config?: AxiosRequestConfig) =>
+  asyncRequest(url, "put", data, config);
+
+export const del = (url: string, config?: AxiosRequestConfig) =>
+  asyncRequest(url, "delete", undefined, config);
+
+// ✅ Export as Object
 const httpService = {
   get,
   post,
   put,
   delete: del,
-  request: asyncRequest
+  request: asyncRequest,
 };
 
 export default httpService;
