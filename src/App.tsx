@@ -38,26 +38,31 @@ function App() {
       </div>
     );
   }
-  type User = {
+  
+  type Products = {
   id: number;
-  name: string;
-  email: string;
+  title: string;
+  price: number;
+  category: string;
+  description: string;
 };
-
-  const UserList = () => {
-  const [users, setUsers] = useState<User[]>([]);
+  const ProductList = () => {
+    const [product, setproduct] = useState<Products[]>([]);
 
   useEffect(() => {
-    httpService.get("/users")
-      .then(setUsers)
+    httpService.get("/products")
+      .then((res)=>{
+        console.log('product fetch',res)
+        setproduct(res.products);
+      })
       .catch((err) => console.error("Failed to fetch users", err));
   }, []);
 
   return (
     <div>
-      <h2>User List</h2>
+      <h2>Product List</h2>
       <ul>
-        {users.map(u => <li key={u.id}>{u.name}</li>)}
+        {product.map((p:any )=> <li key={p.id}>{p.description}{p.title}</li>)}
       </ul>
     </div>
   );
@@ -72,6 +77,7 @@ function App() {
 // You are free to exercise your creativity to style the appearance of the traffic light.
 <>
     <div className="App">
+      <ProductList/>
       <h2>Traffic Light Simulation</h2>
       <TrafficLight />
     </div>
