@@ -1,4 +1,5 @@
-@import './variables.scss';
+@import './variable.scss';
+@import './form.scss';
 body {
   box-sizing: border-box;
   margin: 0;
@@ -25,6 +26,14 @@ p {
   font-weight: 400;
   color: $icon-bg-color;
   margin: 0;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  li{
+    padding: 4px 12px;
+  }
 }
 
 
