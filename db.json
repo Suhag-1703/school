@@ -1,19 +1,16 @@
 {
-  "UserDetails": [
-    {
-      "id": "1",
-      "name": "Deepak",
-      "email": "Deepak@gmail.com",
-      "Password":"Cheeku-06/2023"
-    }
+  "users": [
+    { "id": 1, "role": "principal", "email": "principal@school.com", "password": "1234" },
+    { "id": 2, "role": "teacher", "email": "teacher1@school.com", "password": "1234" },
+    { "id": 3, "role": "student", "email": "student1@school.com", "password": "1234" }
   ],
-
-  
-  "DashBoard": [
-    {
-      "name": "Poppo",
-      "email": "Poppo@gmail.com",
-      "id": "1"
-    }
+  "students": [
+    { "id": 1, "name": "Amit", "class": "5A", "attendance": [] }
+  ],
+  "teachers": [
+    { "id": 1, "name": "Mrs. Sharma", "subjects": ["Math", "Science"] }
+  ],
+  "classes": [
+    { "id": "5A", "teacherId": 1 }
   ]
 }

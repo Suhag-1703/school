@@ -23,8 +23,8 @@ const AppRoute: React.FC = () => {
             <BrowserRouter>
                 <Suspense fallback={<div>Loading...</div>}>
                     <Routes>
-                        <Route path='/' element={<DashBoard />}></Route>
-                        <Route path='/Login' element={<Login />}></Route>
+                        <Route path='/dashboard' element={<DashBoard />}></Route>
+                        <Route path='/' element={<Login />}></Route>
                         <Route path='*' element={<PageNotFound />}></Route>
                     </Routes>
                 </Suspense>

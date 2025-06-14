@@ -126,4 +126,45 @@ ul{
   background-color: #ccc;
 }
 
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $white-color;
+
+  .login-form {
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    //background-color: $form-bg-color;
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px; 
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: $primary-color;
+      color: $white-color;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($icon-main-bg-color, 10%);
+      }
+    }
+  }
+}
+
+
 
