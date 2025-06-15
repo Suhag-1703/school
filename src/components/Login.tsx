@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { get } from '../service/http.service';
+import axios from 'axios';
 
 const Login:React.FC=()=>{
    const [email, setEmail] = useState<string>('');
@@ -45,10 +46,10 @@ const Login:React.FC=()=>{
 
 
 
-   const handleSubmit=(e:any)=>{
+   const handleSubmit=async (e:any)=>{
      e.preventDefault();
      try{
-      let res = get('/users');
+      let res = await get('http://localhost:3001/users');
       console.log('res',res);
      }catch(err){
       console.log(err);
