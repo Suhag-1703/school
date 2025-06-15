@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+const PrincipalDasboard = React.lazy(() => import('./PrincipalDashbooard'));
 const Login = React.lazy(()=>import('./Login'));
 const DashBoard = React.lazy(() => import('./DashBoard'));
 const PageNotFound = React.lazy(() => import('../public/PageNotFound'));
@@ -25,6 +26,7 @@ const AppRoute: React.FC = () => {
                     <Routes>
                         <Route path='/dashboard' element={<DashBoard />}></Route>
                         <Route path='/' element={<Login />}></Route>
+                        <Route path='/principal-dashboard' element={<PrincipalDasboard />}></Route>
                         <Route path='*' element={<PageNotFound />}></Route>
                     </Routes>
                 </Suspense>

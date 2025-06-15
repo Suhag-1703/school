@@ -9,17 +9,17 @@ const Login:React.FC=()=>{
    const navigate = useNavigate();
    const handleSubmit = async (e: React.FormEvent) => {
      e.preventDefault();
+     console.log('Login form submitted', { email, password });
      try{
-      const users = await httpService.get('/users',{
-        params:{
-          email: email,
-          password: password
-        }
-      });
+      const users = (await httpService.get('/users', {
+        params: { email, password }
+      })).data;
+      
 
       if(users.length > 0){
 
         const user = users[0];
+        console.log("Logged in user:", user.role);
         localStorage.setItem('user', JSON.stringify(user));
         toast.success(`Welcome, ${user.name}!`);
         if(user.role === 'principal')
@@ -45,7 +45,9 @@ const Login:React.FC=()=>{
   <>
     <div className="login-container">
       <h1>Login</h1>
-      <form className='login-form'>
+      <form className='login-form' onSubmit={
+        handleSubmit
+      }>
         <div className="form-group">
           {/* <label htmlFor="email">Email:</label> */}
           <input
@@ -70,7 +72,7 @@ const Login:React.FC=()=>{
             required
           />
         </div>
-        <button type="submit" onSubmit={handleSubmit} >Login</button>
+        <button type="submit" >Login</button>
       </form>
     </div>
 

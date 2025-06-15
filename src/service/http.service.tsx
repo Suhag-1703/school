@@ -9,10 +9,8 @@ import axios, {
 } from "axios";
 import toast from "react-hot-toast";
 
-const BASE_URL =
-  process.env.REACT_APP_BACKEND === 'json' 
-    ? 'http://localhost:3001' 
-    : 'https://dummyjson.com';
+const BASE_URL = 'http://localhost:3001';
+
 
 
 // ✅ Create Axios Instance
@@ -24,14 +22,14 @@ const http: AxiosInstance = axios.create({
 });
 
 // ✅ Request Interceptor (Add token if exists)
-// http.interceptors.request.use((config: any) => {
-//   const token = localStorage.getItem("authToken");
-//   config.headers = config.headers || {};
-//   if (token) {
-//     config.headers.Authorization = `Bearer ${token}`;
-//   }
-//   return config;
-// });
+http.interceptors.request.use((config: any) => {
+  const token = localStorage.getItem("authToken");
+  config.headers = config.headers || {};
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
 
 // ✅ Response Interceptor with Toast Error Handler
 http.interceptors.response.use(
