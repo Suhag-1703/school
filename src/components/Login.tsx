@@ -1,45 +1,59 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import httpService from '../service/http.service';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { get } from '../service/http.service';
 
 const Login:React.FC=()=>{
    const [email, setEmail] = useState<string>('');
    const [password, setPassword] = useState<string>(''); 
    const navigate = useNavigate();
-   const handleSubmit = async (e: React.FormEvent) => {
-     e.preventDefault();
-     console.log('Login form submitted', { email, password });
-     try{
-      const users = (await httpService.get('/users', {
-        params: { email, password }
-      })).data;
+
+
+
+  //  const shandleSubmit = async (e: React.FormEvent) => {
+  //    e.preventDefault();
+  //    console.log('Login form submitted', { email, password });
+  //    try{
+  //     const users = (await httpService.get('/users', {
+  //       params: { email, password }
+  //     })).data;
       
 
-      if(users.length > 0){
+  //     if(users.length > 0){
 
-        const user = users[0];
-        console.log("Logged in user:", user.role);
-        localStorage.setItem('user', JSON.stringify(user));
-        toast.success(`Welcome, ${user.name}!`);
-        if(user.role === 'principal')
-          navigate('/principal-dashboard');
-         else if(user.role === 'teacher')
-            navigate('/teacher-dashboard');
-          else if(user.role === 'student')
-              navigate('/student-dashboard');
+  //       const user = users[0];
+  //       console.log("Logged in user:", user.role);
+  //       localStorage.setItem('user', JSON.stringify(user));
+  //       toast.success(`Welcome, ${user.name}!`);
+  //       if(user.role === 'principal')
+  //         navigate('/principal-dashboard');
+  //        else if(user.role === 'teacher')
+  //           navigate('/teacher-dashboard');
+  //         else if(user.role === 'student')
+  //             navigate('/student-dashboard');
 
-     }else {
-      toast.error('Invalid email or password');
-    }
-  } catch (error) {
-    console.error('Login failed', error);
-  }
+  //    }else {
+  //     toast.error('Invalid email or password');
+  //   }
+  // } catch (error) {
+  //   console.error('Login failed', error);
+  // }
     
      
-   };
+  //  };
 
 
+
+
+   const handleSubmit=(e:any)=>{
+     e.preventDefault();
+     try{
+      let res = get('/users');
+      console.log('res',res);
+     }catch(err){
+      console.log(err);
+     }
+   }
 
   return (
   <>
